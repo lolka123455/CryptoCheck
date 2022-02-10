@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.lifecycle:lifecycle-reactivestreams:2.4.0-alpha03@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/986033f222895a3c52f1d63603f8c0ce/transformed/lifecycle-reactivestreams-2.4.0-alpha03/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/986033f222895a3c52f1d63603f8c0ce/transformed/lifecycle-reactivestreams-2.4.0-alpha03/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/986033f222895a3c52f1d63603f8c0ce/transformed/lifecycle-reactivestreams-2.4.0-alpha03/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2f5caefd61d76fab3b8c10460b385347/transformed/lifecycle-reactivestreams-2.4.0-alpha03/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2f5caefd61d76fab3b8c10460b385347/transformed/lifecycle-reactivestreams-2.4.0-alpha03/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2f5caefd61d76fab3b8c10460b385347/transformed/lifecycle-reactivestreams-2.4.0-alpha03/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

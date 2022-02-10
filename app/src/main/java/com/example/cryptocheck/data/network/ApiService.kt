@@ -1,8 +1,8 @@
-package api
+package com.example.cryptocheck.data.network
 
 import io.reactivex.rxjava3.core.Single
-import pojo.CoinInfoListOfData
-import pojo.CoinPriceInfoRawData
+import com.example.cryptocheck.data.model.CoinInfoListOfData
+import com.example.cryptocheck.data.model.CoinPriceInfoRawData
 import retrofit2.http.GET
 import retrofit2.http.Query
 

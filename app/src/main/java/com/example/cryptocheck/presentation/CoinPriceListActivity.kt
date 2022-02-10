@@ -1,12 +1,12 @@
-package com.example.cryptocheck
+package com.example.cryptocheck.presentation
 
-import adapters.CoinInfoAdapter
+import com.example.cryptocheck.presentation.adapters.CoinInfoAdapter
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import pojo.CoinPriceInfo
+import com.example.cryptocheck.R
+import com.example.cryptocheck.data.model.CoinPriceInfo
 
 class CoinPriceListActivity : AppCompatActivity() {
 
@@ -34,8 +34,8 @@ class CoinPriceListActivity : AppCompatActivity() {
 
         viewModel =
             ViewModelProvider.AndroidViewModelFactory(application).create(CoinViewModel::class.java)
-        viewModel.priceList.observe(this, {
+        viewModel.priceList.observe(this) {
             adapter.coinInfoList = it
-        })
+        }
     }
 }

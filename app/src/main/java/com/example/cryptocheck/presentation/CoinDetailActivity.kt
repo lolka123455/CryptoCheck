@@ -1,4 +1,4 @@
-package com.example.cryptocheck
+package com.example.cryptocheck.presentation
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.cryptocheck.R
 import com.squareup.picasso.Picasso
 
 class CoinDetailActivity : AppCompatActivity() {
@@ -40,7 +41,7 @@ class CoinDetailActivity : AppCompatActivity() {
         tvToSymbol = findViewById(R.id.tvToSymbol)
         ivLogoCoin = findViewById(R.id.ivLogoCoin)
         fromSymbol?.let { it ->
-            viewModel.getDetailInfo(it).observe(this, {
+            viewModel.getDetailInfo(it).observe(this) {
                 tvPrice.text = it.price.toString()
                 tvMinPrice.text = it.lowDay.toString()
                 tvMaxPrice.text = it.highDay.toString()
@@ -49,7 +50,7 @@ class CoinDetailActivity : AppCompatActivity() {
                 tvFromSymbol.text = it.fromSymbol
                 tvToSymbol.text = it.toSymbol
                 Picasso.get().load(it.getFullImageUrl()).into(ivLogoCoin)
-            })
+            }
         }
     }
 

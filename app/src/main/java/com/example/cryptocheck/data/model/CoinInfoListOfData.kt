@@ -1,4 +1,4 @@
-package pojo
+package com.example.cryptocheck.data.model
 
 import com.google.gson.annotations.Expose
 

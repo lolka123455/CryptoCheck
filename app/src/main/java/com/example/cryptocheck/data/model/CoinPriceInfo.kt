@@ -1,15 +1,15 @@
-package pojo
+package com.example.cryptocheck.data.model
 
 import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import api.ApiFactory.BASE_IMAGE_URL
+import com.example.cryptocheck.data.network.ApiFactory.BASE_IMAGE_URL
+import com.example.cryptocheck.utils.convertTimestampToTime
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import utils.convertTimestampToTime
 
 @Entity(tableName = "full_price_list")
-data class CoinPriceInfo (
+data class CoinPriceInfo(
     @SerializedName("TYPE")
     @Expose
     var type: String? = null,
@@ -188,11 +188,11 @@ data class CoinPriceInfo (
     @Expose
     var imageUrl: String? = null
 ) {
-    fun getFormattedTime() : String {
+    fun getFormattedTime(): String {
         return convertTimestampToTime(lastUpdate)
     }
 
-    fun getFullImageUrl() : String {
+    fun getFullImageUrl(): String {
         return BASE_IMAGE_URL + imageUrl
     }
 }

@@ -1,4 +1,4 @@
-package adapters
+package com.example.cryptocheck.presentation.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptocheck.R
 import com.squareup.picasso.Picasso
-import pojo.CoinPriceInfo
+import com.example.cryptocheck.data.model.CoinPriceInfo
 
 class CoinInfoAdapter(private val context: Context) :
     RecyclerView.Adapter<CoinInfoAdapter.CoinInfoViewHolder>() {

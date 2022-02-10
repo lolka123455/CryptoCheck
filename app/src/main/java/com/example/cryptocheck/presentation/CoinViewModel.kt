@@ -1,17 +1,17 @@
-package com.example.cryptocheck
+package com.example.cryptocheck.presentation
 
 import android.annotation.SuppressLint
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import api.ApiFactory
+import com.example.cryptocheck.data.network.ApiFactory
 import com.google.gson.Gson
-import database.AppDatabase
+import com.example.cryptocheck.data.database.AppDatabase
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import pojo.CoinPriceInfo
-import pojo.CoinPriceInfoRawData
+import com.example.cryptocheck.data.model.CoinPriceInfo
+import com.example.cryptocheck.data.model.CoinPriceInfoRawData
 import java.util.concurrent.TimeUnit
 
 class CoinViewModel(application: Application) : AndroidViewModel(application) {
