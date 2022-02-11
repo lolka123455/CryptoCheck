@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptocheck.R
-import com.example.cryptocheck.data.model.CoinPriceInfo
+import com.example.cryptocheck.data.network.model.CoinInfoDto
 
 class CoinPriceListActivity : AppCompatActivity() {
 
@@ -21,10 +21,10 @@ class CoinPriceListActivity : AppCompatActivity() {
 
         val adapter = CoinInfoAdapter(this)
         adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
-            override fun onCoinClick(coinPriceInfo: CoinPriceInfo) {
+            override fun onCoinClick(coinInfoDto: CoinInfoDto) {
                 val intent = CoinDetailActivity.newIntent(
                     this@CoinPriceListActivity,
-                    coinPriceInfo.fromSymbol
+                    coinInfoDto.fromSymbol
                 )
                 startActivity(intent)
             }
@@ -35,7 +35,7 @@ class CoinPriceListActivity : AppCompatActivity() {
         viewModel =
             ViewModelProvider.AndroidViewModelFactory(application).create(CoinViewModel::class.java)
         viewModel.priceList.observe(this) {
-            adapter.coinInfoList = it
+            adapter.coinInfoDtoList = it
         }
     }
 }

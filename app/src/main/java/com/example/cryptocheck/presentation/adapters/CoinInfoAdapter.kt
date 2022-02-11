@@ -10,12 +10,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptocheck.R
 import com.squareup.picasso.Picasso
-import com.example.cryptocheck.data.model.CoinPriceInfo
+import com.example.cryptocheck.data.network.model.CoinInfoDto
 
 class CoinInfoAdapter(private val context: Context) :
     RecyclerView.Adapter<CoinInfoAdapter.CoinInfoViewHolder>() {
 
-    var coinInfoList: List<CoinPriceInfo> = listOf()
+    var coinInfoDtoList: List<CoinInfoDto> = listOf()
         @SuppressLint("NotifyDataSetChanged")
         set(value) {
             field = value
@@ -31,7 +31,7 @@ class CoinInfoAdapter(private val context: Context) :
     }
 
     override fun onBindViewHolder(holder: CoinInfoViewHolder, position: Int) {
-        val coin = coinInfoList[position]
+        val coin = coinInfoDtoList[position]
         with(holder) {
             with(coin) {
                 val symbolsTemplate = context.resources.getString(R.string.symbols_template)
@@ -47,7 +47,7 @@ class CoinInfoAdapter(private val context: Context) :
         }
     }
 
-    override fun getItemCount() = coinInfoList.size
+    override fun getItemCount() = coinInfoDtoList.size
 
     inner class CoinInfoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var ivLogoCoin: ImageView = itemView.findViewById(R.id.ivLogoCoin)
@@ -57,6 +57,6 @@ class CoinInfoAdapter(private val context: Context) :
     }
 
     interface OnCoinClickListener {
-        fun onCoinClick(coinPriceInfo: CoinPriceInfo)
+        fun onCoinClick(coinInfoDto: CoinInfoDto)
     }
 }
