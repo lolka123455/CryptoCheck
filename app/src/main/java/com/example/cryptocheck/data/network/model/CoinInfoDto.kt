@@ -1,6 +1,5 @@
 package com.example.cryptocheck.data.network.model
 
-import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.cryptocheck.data.network.ApiFactory.BASE_IMAGE_URL

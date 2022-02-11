@@ -1,8 +1,7 @@
 package com.example.cryptocheck.data.network
 
-import io.reactivex.rxjava3.core.Single
-import com.example.cryptocheck.data.network.model.CoinNamesListDto
 import com.example.cryptocheck.data.network.model.CoinInfoJsonContainerDto
+import com.example.cryptocheck.data.network.model.CoinNamesListDto
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -32,5 +31,4 @@ interface ApiService {
 
         private const val CURRENCY = "USD"
     }
-
 }

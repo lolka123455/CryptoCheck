@@ -54,5 +54,4 @@ class CoinMapper {
         lastMarket = dbModel.lastMarket,
         imageUrl = dbModel.imageUrl
     )
-
 }
