@@ -3,48 +3,33 @@ package com.example.cryptocheck.presentation
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.cryptocheck.R
+import com.example.cryptocheck.databinding.ActivityCoinDetailBinding
 import com.squareup.picasso.Picasso
 
 class CoinDetailActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: CoinViewModel
-    private lateinit var tvPrice: TextView
-    private lateinit var tvMinPrice: TextView
-    private lateinit var tvMaxPrice: TextView
-    private lateinit var tvLastMarket: TextView
-    private lateinit var tvLastUpdate: TextView
-    private lateinit var tvFromSymbol: TextView
-    private lateinit var tvToSymbol: TextView
+    private val binding by lazy {
+        ActivityCoinDetailBinding.inflate(layoutInflater)
+    }
 
-    private lateinit var ivLogoCoin: ImageView
+    private lateinit var viewModel: CoinViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_coin_detail)
+        setContentView(binding.root)
         if (!intent.hasExtra(EXTRA_FROM_SYMBOL)) {
             finish()
             return
         }
-        val fromSymbol = intent.getStringExtra(EXTRA_FROM_SYMBOL)
+        val fromSymbol = intent.getStringExtra(EXTRA_FROM_SYMBOL) ?: EMPTY_SYMBOL
         viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
-        tvPrice = findViewById(R.id.tvPrice)
-        tvMinPrice = findViewById(R.id.tvMinPrice)
-        tvMaxPrice = findViewById(R.id.tvMaxPrice)
-        tvLastMarket = findViewById(R.id.tvLastMarket)
-        tvLastUpdate = findViewById(R.id.tvLastUpdate)
-        tvFromSymbol = findViewById(R.id.tvFromSymbol)
-        tvToSymbol = findViewById(R.id.tvToSymbol)
-        ivLogoCoin = findViewById(R.id.ivLogoCoin)
-        fromSymbol?.let { it ->
-            viewModel.getDetailInfo(it).observe(this) {
-                tvPrice.text = it.price.toString()
-                tvMinPrice.text = it.lowDay.toString()
-                tvMaxPrice.text = it.highDay.toString()
+        viewModel.getDetailInfo(fromSymbol).observe(this) {
+            with(binding) {
+                tvPrice.text = it.price
+                tvMinPrice.text = it.lowDay
+                tvMaxPrice.text = it.highDay
                 tvLastMarket.text = it.lastMarket
                 tvLastUpdate.text = it.lastUpdate
                 tvFromSymbol.text = it.fromSymbol
@@ -56,6 +41,7 @@ class CoinDetailActivity : AppCompatActivity() {
 
     companion object {
         private const val EXTRA_FROM_SYMBOL = "fSym"
+        private const val EMPTY_SYMBOL = ""
 
         fun newIntent(context: Context, fromSymbol: String): Intent {
             val intent = Intent(context, CoinDetailActivity::class.java)
