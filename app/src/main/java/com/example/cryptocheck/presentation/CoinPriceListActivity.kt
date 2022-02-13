@@ -3,6 +3,7 @@ package com.example.cryptocheck.presentation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.cryptocheck.R
 import com.example.cryptocheck.databinding.ActivityCoinPriceListBinding
 import com.example.cryptocheck.domain.CoinInfo
 import com.example.cryptocheck.presentation.adapters.CoinInfoAdapter
@@ -23,11 +24,11 @@ class CoinPriceListActivity : AppCompatActivity() {
         val adapter = CoinInfoAdapter(this)
         adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
             override fun onCoinClick(coinPriceInfo: CoinInfo) {
-                val intent = CoinDetailActivity.newIntent(
-                    this@CoinPriceListActivity,
-                    coinPriceInfo.fromSymbol
-                )
-                startActivity(intent)
+                if (isOnePaneMode()) {
+                    launchDetailActivity(coinPriceInfo.fromSymbol)
+                }else {
+                    launchDetailFragment(coinPriceInfo.fromSymbol)
+                }
             }
 
         }
@@ -37,5 +38,24 @@ class CoinPriceListActivity : AppCompatActivity() {
         viewModel.coinInfoList.observe(this) {
             adapter.submitList(it)
         }
+    }
+
+    private fun isOnePaneMode() = binding.fragmentContainer == null
+
+    private fun launchDetailActivity(fromSymbol: String){
+        val intent = CoinDetailActivity.newIntent(
+            this@CoinPriceListActivity,
+            fromSymbol
+        )
+        startActivity(intent)
+    }
+
+    private fun launchDetailFragment(fromSymbol:String) {
+        supportFragmentManager.popBackStack()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container, CoinDetailFragment.newInstance(fromSymbol))
+            .addToBackStack(null)
+            .commit()
     }
 }
