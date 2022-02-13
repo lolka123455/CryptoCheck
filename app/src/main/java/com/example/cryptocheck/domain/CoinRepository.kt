@@ -10,5 +10,5 @@ interface CoinRepository {
 
     fun getCoinInfo(fromSymbol: String): LiveData<CoinInfo>
 
-    suspend fun loadData()
+    fun loadData()
 }
