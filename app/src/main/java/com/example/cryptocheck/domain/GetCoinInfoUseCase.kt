@@ -1,8 +1,10 @@
 package com.example.cryptocheck.domain
 
+import javax.inject.Inject
+
 //This class is calling the repository to get coin info.
 
-class GetCoinInfoUseCase(
+class GetCoinInfoUseCase @Inject constructor(
     private val repository: CoinRepository
 ) {
 

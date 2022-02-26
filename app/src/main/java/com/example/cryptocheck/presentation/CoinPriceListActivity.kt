@@ -7,17 +7,25 @@ import com.example.cryptocheck.R
 import com.example.cryptocheck.databinding.ActivityCoinPriceListBinding
 import com.example.cryptocheck.domain.CoinInfo
 import com.example.cryptocheck.presentation.adapters.CoinInfoAdapter
+import javax.inject.Inject
 
 class CoinPriceListActivity : AppCompatActivity() {
 
-
     private lateinit var viewModel: CoinViewModel
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
 
     private val binding by lazy {
         ActivityCoinPriceListBinding.inflate(layoutInflater)
     }
 
+    private val component by lazy {
+        (application as CoinApp).component
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        component.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
@@ -34,7 +42,7 @@ class CoinPriceListActivity : AppCompatActivity() {
         }
         binding.rvCoinPriceList.adapter = adapter
         binding.rvCoinPriceList.itemAnimator = null
-        viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
+        viewModel = ViewModelProvider(this, viewModelFactory)[CoinViewModel::class.java]
         viewModel.coinInfoList.observe(this) {
             adapter.submitList(it)
         }

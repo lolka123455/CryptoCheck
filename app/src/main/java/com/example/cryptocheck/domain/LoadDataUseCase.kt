@@ -1,6 +1,8 @@
 package com.example.cryptocheck.domain
 
-class LoadDataUseCase(
+import javax.inject.Inject
+
+class LoadDataUseCase @Inject constructor(
     private val repository: CoinRepository
 ) {
 
