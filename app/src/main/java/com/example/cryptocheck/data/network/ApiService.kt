@@ -5,6 +5,8 @@ import com.example.cryptocheck.data.network.model.CoinNamesListDto
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+/*This interface is getting the top 10 coins from CoinMarketCap and their current price in USD.
+It also gets the full list of all coins with their prices in USD.*/
 interface ApiService {
     @GET("top/totalvolfull")
    suspend fun getTopCoinsInfo(

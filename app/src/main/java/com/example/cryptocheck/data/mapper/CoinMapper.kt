@@ -11,8 +11,13 @@ import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
+/*This class is mapping the data from the API to a list of CoinInfoDto.
+The mapJsonContainerToListCoinInfo function takes in a json container and returns a list of
+CoinInfoDto. It iterates through each coin key, which represents one currency (e.g., BTC).
+It then iterates through each currency key, which represents another type of currency (e.g., USD).*/
 class CoinMapper @Inject constructor(){
 
+    //This function is mapping the data from CoinInfoDto to CoinInfoDbModel.
     fun mapDtoToDbModel(dto: CoinInfoDto) = CoinInfoDbModel(
         fromSymbol = dto.fromSymbol,
         toSymbol = dto.toSymbol,
@@ -24,6 +29,9 @@ class CoinMapper @Inject constructor(){
         imageUrl = BASE_IMAGE_URL + dto.imageUrl
     )
 
+    /*This function is doing the following. It's creating a list of CoinInfoDto objects and adding
+    them to it. The jsonObject that we get from the JsonContainerDto object is then being converted
+    into a Map String> type using Gson().fromJson() method.*/
     fun mapJsonContainerToListCoinInfo(jsonContainer: CoinInfoJsonContainerDto): List<CoinInfoDto> {
         val result = mutableListOf<CoinInfoDto>()
         val jsonObject = jsonContainer.json ?: return result
@@ -42,12 +50,17 @@ class CoinMapper @Inject constructor(){
         return result
     }
 
+    /*This function is mapping the names list to a string. The map function takes in an element of
+    type CoinNamesListDto and returns a String. The joinToString function joins all elements of the
+    array into one string separated by commas.
+    If there are no elements, it will return an empty string.*/
     fun mapNamesListToString(namesListDto: CoinNamesListDto): String {
         return namesListDto.names?.map {
             it.coinName?.name
         }?.joinToString(",") ?: ""
     }
 
+    //This function is converting the database model to an entity.
     fun mapDbModelToEntity(dbModel: CoinInfoDbModel) = CoinInfo(
         fromSymbol = dbModel.fromSymbol,
         toSymbol = dbModel.toSymbol,
@@ -59,6 +72,10 @@ class CoinMapper @Inject constructor(){
         imageUrl = dbModel.imageUrl
     )
 
+    /*This function is converting the timestamp to a time. The pattern is "HHmmss" which means that
+    it will show hours, minutes and seconds in 24 hour format. The locale is set to default so that
+    it can be used on any device.
+    This code also sets the timezone of the system as default for this app.*/
     private fun convertTimestampToTime(timestamp: Long?): String {
         if (timestamp == null) return ""
         val stamp = Timestamp(timestamp * 1000)
@@ -70,7 +87,6 @@ class CoinMapper @Inject constructor(){
     }
 
     companion object {
-
         const val BASE_IMAGE_URL = "https://cryptocompare.com"
     }
 }

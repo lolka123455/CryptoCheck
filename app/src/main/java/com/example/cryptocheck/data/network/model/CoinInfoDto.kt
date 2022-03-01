@@ -5,8 +5,13 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
+/*This data class is using the [SerializedName] annotation to map the JSON keys to the variables in
+this class. The primary key of this table is fromSymbol, which maps to a String variable called
+fromSymbol. This code also uses an @PrimaryKey annotation on that variable so it can be used as a
+primary key for queries and updates.*/
 @Entity(tableName = "full_price_list")
 data class CoinInfoDto(
+
     @SerializedName("TYPE")
     @Expose
     val type: String?,
