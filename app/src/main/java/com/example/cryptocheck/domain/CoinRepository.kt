@@ -2,7 +2,7 @@ package com.example.cryptocheck.domain
 
 import androidx.lifecycle.LiveData
 
-//This interface is getting a list of CoinInfo objects from the database
+//This interface is getting the list of coin info from the api and storing it in a local database.
 
 interface CoinRepository {
 
