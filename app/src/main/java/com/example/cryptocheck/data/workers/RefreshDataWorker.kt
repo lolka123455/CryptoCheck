@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.work.*
 import com.example.cryptocheck.data.database.CoinInfoDao
 import com.example.cryptocheck.data.mapper.CoinMapper
-import com.example.cryptocheck.data.network.ApiFactory.apiService
 import com.example.cryptocheck.data.network.ApiService
 import kotlinx.coroutines.delay
 import javax.inject.Inject
@@ -13,7 +12,7 @@ class RefreshDataWorker(
     context: Context,
     workerParameters: WorkerParameters,
     private val coinInfoDao: CoinInfoDao,
-    private val apiFactory: ApiService,
+    private val apiService: ApiService,
     private val mapper: CoinMapper
 ) : CoroutineWorker(context, workerParameters) {
 
