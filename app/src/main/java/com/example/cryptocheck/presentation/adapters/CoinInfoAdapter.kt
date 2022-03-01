@@ -9,6 +9,9 @@ import com.example.cryptocheck.databinding.ItemCoinInfoBinding
 import com.example.cryptocheck.domain.CoinInfo
 import com.squareup.picasso.Picasso
 
+/*This class is creating a list of CoinInfo objects and binding them to the RecyclerView.
+The code uses Picasso to load the imageUrl into the ImageView ivLogoCoin. When a user clicks on an
+item, it calls OnCoinClickListener's onCoinClick method with that coin object as its parameter*/
 class CoinInfoAdapter(
     private val context: Context
 ) : ListAdapter<CoinInfo, CoinInfoViewHolder>
@@ -16,6 +19,7 @@ class CoinInfoAdapter(
 
     var onCoinClickListener: OnCoinClickListener? = null
 
+    //This function is inflating the layout for each item in the recyclerview.
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoinInfoViewHolder {
         val binding = ItemCoinInfoBinding.inflate(
             LayoutInflater.from(parent.context),
@@ -25,6 +29,7 @@ class CoinInfoAdapter(
         return CoinInfoViewHolder(binding)
     }
 
+    //This fun is binding the data to the views.
     override fun onBindViewHolder(holder: CoinInfoViewHolder, position: Int) {
         val coin = getItem(position)
         with(holder.binding) {
@@ -40,10 +45,11 @@ class CoinInfoAdapter(
                 }
             }
         }
-
     }
 
-
+    /*This code is listening for a click on the coin image. When it detects that a click has been
+    made, it will call the `onCoinClick` method in the OnCoinClickListener interface and pass along
+    the CoinInfo object associated with this particular coin.*/
     interface OnCoinClickListener {
         fun onCoinClick(coinPriceInfo: CoinInfo)
     }

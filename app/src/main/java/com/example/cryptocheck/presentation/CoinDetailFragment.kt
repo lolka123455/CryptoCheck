@@ -11,6 +11,9 @@ import com.example.cryptocheck.databinding.FragmentCoinDetailBinding
 import com.squareup.picasso.Picasso
 import javax.inject.Inject
 
+/*This class is observing the viewModel.getDetailInfo() method and setting the text of tvPrice,
+tvMinPrice, tvMaxPrice, tvLastMarket, tvLastUpdate to it's respective values from the API response.
+It also sets a Picasso image into ivLogoCoin using its URL value from the API response.*/
 class CoinDetailFragment : Fragment() {
     private lateinit var viewModel: CoinViewModel
 
@@ -57,6 +60,7 @@ class CoinDetailFragment : Fragment() {
         }
     }
 
+    //This function is getting the symbol from the arguments bundle.
     private fun getSymbol(): String {
         return requireArguments().getString(EXTRA_FROM_SYMBOL, EMPTY_SYMBOL)
     }
@@ -65,6 +69,10 @@ class CoinDetailFragment : Fragment() {
         private const val EXTRA_FROM_SYMBOL = "fSym"
         private const val EMPTY_SYMBOL = ""
 
+        /*This function is creating a new instance of the fragment and passing in an argument.
+        The arguments are used to pass data from one activity to another. In this case, we're
+        passing in the symbol for which coin we want information about. This will be passed into our
+        CoinDetailFragment when it's created by using [Bundle].*/
         fun newInstance(fromSymbol: String): Fragment {
             return CoinDetailFragment().apply {
                 arguments = Bundle().apply {

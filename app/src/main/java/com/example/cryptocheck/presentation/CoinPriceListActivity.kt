@@ -9,6 +9,10 @@ import com.example.cryptocheck.domain.CoinInfo
 import com.example.cryptocheck.presentation.adapters.CoinInfoAdapter
 import javax.inject.Inject
 
+/*This class is observing the coinInfoList from CoinViewModel. It's using a custom adapter to
+display the data in RecyclerView. The onCoinClickListener is used to handle click event of each item
+in RecyclerView. When user clicks an item, it will launch DetailActivity or DetailFragment depending
+on whether device has one pane mode or not.*/
 class CoinPriceListActivity : AppCompatActivity() {
 
     private lateinit var viewModel: CoinViewModel
@@ -47,9 +51,13 @@ class CoinPriceListActivity : AppCompatActivity() {
             adapter.submitList(it)
         }
     }
-
+    /*This function is checking if the fragment container is null. If it's not, then we know that there
+    are two fragments in this activity and therefore we're in one pane mode. If the fragment
+    container is null, then we know that there's only one fragment in this activity and therefore
+    we're in two pane mode.*/
     private fun isOnePaneMode() = binding.fragmentContainer == null
 
+    //This function is launching the CoinDetailActivity with a symbol as an extra.
     private fun launchDetailActivity(fromSymbol: String){
         val intent = CoinDetailActivity.newIntent(
             this@CoinPriceListActivity,
@@ -58,6 +66,8 @@ class CoinPriceListActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    /*This function is creating a new instance of the CoinDetailFragment and passing in the symbol
+    as an argument*/
     private fun launchDetailFragment(fromSymbol:String) {
         supportFragmentManager.popBackStack()
         supportFragmentManager

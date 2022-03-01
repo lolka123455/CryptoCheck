@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.cryptocheck.R
 import com.example.cryptocheck.databinding.ActivityCoinDetailBinding
 
+/*This class is setting up the activity and inflating the layout. It's also checking if there is an
+extra in the intent, if not it will finish this activity. If there is an extra, then we are creating
+a new instance of CoinDetailFragment with the fromSymbol as a parameter to be passed into that fragment.*/
 class CoinDetailActivity : AppCompatActivity() {
 
     private val binding by lazy {
@@ -20,6 +23,9 @@ class CoinDetailActivity : AppCompatActivity() {
             finish()
             return
         }
+        /*This code is checking if the savedInstanceState is null. If it's not, then we know that
+        this activity was recreated after a configuration change (e.g., screen rotation). In this
+        case, the fragments will already be there and we don't need to add them again.*/
         val fromSymbol = intent.getStringExtra(EXTRA_FROM_SYMBOL) ?: EMPTY_SYMBOL
         if (savedInstanceState == null){
             supportFragmentManager
