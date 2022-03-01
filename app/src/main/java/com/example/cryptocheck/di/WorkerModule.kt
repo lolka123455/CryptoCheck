@@ -6,6 +6,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 
+//This interface is binding the RefreshDataWorker
 @Module
 interface WorkerModule {
 
