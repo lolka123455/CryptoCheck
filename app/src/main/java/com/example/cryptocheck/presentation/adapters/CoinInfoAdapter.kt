@@ -36,7 +36,7 @@ class CoinInfoAdapter(
                 tvLastUpdate.text = String.format(lastUpdateTemplate, lastUpdate)
                 Picasso.get().load(imageUrl).into(ivLogoCoin)
                 root.setOnClickListener {
-                    onCoinClickListener?.onCoinClick(coin)
+                    onCoinClickListener?.onCoinClick(this)
                 }
             }
         }
