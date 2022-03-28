@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@mipmap/ic_launcher" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvFromSymbol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
         app:layout_constraintTop_toTopOf="@id/tvSlash"
         tools:text="BTC" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvSlash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivLogoCoin" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvToSymbol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
         app:layout_constraintTop_toTopOf="@id/tvSlash"
         tools:text="USD" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.circularreveal.cardview.CircularRevealCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -63,37 +63,38 @@
             android:paddingTop="8dp"
             android:paddingBottom="8dp">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvPriceLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
                 android:text="@string/price_label"
-                android:textColor="#000"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:textColor="#000"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@id/tvPriceLabel"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="7352.5" />
 
             <View
+                android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="8dp"
                 android:background="#63000000"
                 app:layout_constraintTop_toBottomOf="@id/tvPriceLabel" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvMinPriceLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -101,20 +102,19 @@
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
                 android:text="@string/min_price_label"
-                android:textColor="#000"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvPriceLabel" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvMinPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:textColor="@android:color/holo_red_dark"
+                android:textColor="#D50000"
                 android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@id/tvMinPriceLabel"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvPriceLabel"
                 tools:text="7110.0" />
 
@@ -125,7 +125,7 @@
                 android:background="#63000000"
                 app:layout_constraintTop_toBottomOf="@id/tvMinPriceLabel" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvMaxPriceLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -133,20 +133,19 @@
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
                 android:text="@string/max_price_label"
-                android:textColor="#000"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvMinPriceLabel" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvMaxPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:textColor="@android:color/holo_green_dark"
+                android:textColor="#689F38"
                 android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@id/tvMaxPriceLabel"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvMinPriceLabel"
                 tools:text="7820.1" />
 
@@ -157,7 +156,7 @@
                 android:background="#63000000"
                 app:layout_constraintTop_toBottomOf="@id/tvMaxPriceLabel" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvLastMarketLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -165,20 +164,19 @@
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
                 android:text="@string/last_market_label"
-                android:textColor="#000"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvMaxPriceLabel" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvLastMarket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:textColor="#000"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@id/tvLastMarketLabel"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvMaxPriceLabel"
                 tools:text="Bitfinex" />
 
@@ -189,7 +187,7 @@
                 android:background="#63000000"
                 app:layout_constraintTop_toBottomOf="@id/tvLastMarketLabel" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvLastUpdateLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -197,25 +195,24 @@
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
                 android:text="@string/last_updated_label"
-                android:textColor="#000"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvLastMarketLabel" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvLastUpdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:textColor="#000"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@id/tvLastUpdateLabel"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvLastMarket"
                 tools:text="21:05:16" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

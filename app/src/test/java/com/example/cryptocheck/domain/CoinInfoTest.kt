@@ -4,23 +4,12 @@ package com.example.cryptocheck.domain
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-//data class CoinInfo(
-//    val fromSymbol: String,
-//    val toSymbol: String?,
-//    val price: String?,
-//    val lastUpdate: String,
-//    val highDay: String?,
-//    val lowDay: String?,
-//    val lastMarket: String?,
-//    val imageUrl: String
-//)
 
 class CoinInfoTest {
 
 
     @Test
     fun coinInfo_fromSymbol_toSymbol() {
-
         val coinInfo = CoinInfo(
             "BTC",
             "USD",

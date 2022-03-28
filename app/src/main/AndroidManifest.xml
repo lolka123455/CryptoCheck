@@ -12,7 +12,7 @@
         android:name=".presentation.CoinApp"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CryptoCheck">
+        android:theme="@style/Theme.Default">
         <activity
             android:name=".presentation.CoinDetailActivity"
             android:exported="true" />

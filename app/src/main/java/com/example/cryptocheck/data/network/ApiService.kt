@@ -11,7 +11,7 @@ interface ApiService {
     @GET("top/totalvolfull")
    suspend fun getTopCoinsInfo(
         @Query(QUERY_PARAM_API_KEY) apiKey: String =
-            "87446bc49db98981449dd79a2a4aa9228b4bafaf0e85e40c0fcd9db59c55f30e",
+            "f25aa66b2ccc2607eb1ecf26b8ce61db95d6462d622325a45c37e15f38504359",
         @Query(QUERY_PARAM_LIMIT) limit: Int = 10,
         @Query(QUERY_PARAM_TO_SYMBOL) tSym: String = CURRENCY
     ): CoinNamesListDto
@@ -19,7 +19,7 @@ interface ApiService {
     @GET("pricemultifull")
     suspend fun getFullPriceList(
         @Query(QUERY_PARAM_API_KEY) apiKey: String =
-            "87446bc49db98981449dd79a2a4aa9228b4bafaf0e85e40c0fcd9db59c55f30e",
+            "f25aa66b2ccc2607eb1ecf26b8ce61db95d6462d622325a45c37e15f38504359",
         @Query(QUERY_PARAM_TO_SYMBOLS) tSyms: String = CURRENCY,
         @Query(QUERY_PARAM_FROM_SYMBOLS) fSyms: String
     ): CoinInfoJsonContainerDto

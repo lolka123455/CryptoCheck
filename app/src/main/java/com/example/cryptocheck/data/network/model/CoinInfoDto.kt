@@ -1,7 +1,6 @@
 package com.example.cryptocheck.data.network.model
 
 import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
@@ -18,7 +17,6 @@ data class CoinInfoDto(
     @SerializedName("MARKET")
     @Expose
     val market: String?,
-    @PrimaryKey
     @SerializedName("FROMSYMBOL")
     @Expose
     val fromSymbol: String,
