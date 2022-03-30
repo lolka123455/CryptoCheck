@@ -1,6 +1,7 @@
-package com.example.cryptocheck.domain
+package com.example.cryptocheck.data.database
 
 import androidx.lifecycle.LiveData
+import com.example.cryptocheck.data.network.model.CoinInfo
 
 //This interface is getting the list of coin info from the api and storing it in a local database.
 

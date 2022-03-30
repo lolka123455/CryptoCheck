@@ -1,6 +1,7 @@
 package com.example.cryptocheck.domain
 
 
+import com.example.cryptocheck.data.network.model.CoinInfo
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

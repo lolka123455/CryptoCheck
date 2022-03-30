@@ -1,5 +1,6 @@
 package com.example.cryptocheck.domain
 
+import com.example.cryptocheck.data.database.CoinRepository
 import javax.inject.Inject
 
 //This class is calling the repository to get coin info.

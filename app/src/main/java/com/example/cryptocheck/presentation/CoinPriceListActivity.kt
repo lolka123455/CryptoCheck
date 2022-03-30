@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.cryptocheck.R
 import com.example.cryptocheck.databinding.ActivityCoinPriceListBinding
-import com.example.cryptocheck.domain.CoinInfo
+import com.example.cryptocheck.data.network.model.CoinInfo
 import com.example.cryptocheck.presentation.adapters.CoinInfoAdapter
 import javax.inject.Inject
 

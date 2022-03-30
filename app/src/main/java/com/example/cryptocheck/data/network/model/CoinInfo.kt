@@ -1,6 +1,11 @@
-package com.example.cryptocheck.domain
+package com.example.cryptocheck.data.network.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "main_coin_info")
 data class CoinInfo(
+    @PrimaryKey(autoGenerate = true)
     val fromSymbol: String,
     val toSymbol: String?,
     val price: String?,

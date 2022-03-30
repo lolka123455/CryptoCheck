@@ -1,10 +1,10 @@
 package com.example.cryptocheck.data.mapper
 
 import com.example.cryptocheck.data.database.CoinInfoDbModel
+import com.example.cryptocheck.data.network.model.CoinInfo
 import com.example.cryptocheck.data.network.model.CoinInfoDto
 import com.example.cryptocheck.data.network.model.CoinInfoJsonContainerDto
 import com.example.cryptocheck.data.network.model.CoinNamesListDto
-import com.example.cryptocheck.domain.CoinInfo
 import com.google.gson.Gson
 import java.sql.Timestamp
 import java.text.SimpleDateFormat

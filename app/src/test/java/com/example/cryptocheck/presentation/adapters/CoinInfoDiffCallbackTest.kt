@@ -1,6 +1,6 @@
 package com.example.cryptocheck.presentation.adapters
 
-import com.example.cryptocheck.domain.CoinInfo
+import com.example.cryptocheck.data.network.model.CoinInfo
 import junit.framework.Assert.assertTrue
 import org.junit.Test
 
