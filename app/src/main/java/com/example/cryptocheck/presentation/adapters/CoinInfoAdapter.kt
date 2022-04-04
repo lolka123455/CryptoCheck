@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.cryptocheck.R
-import com.example.cryptocheck.databinding.ItemCoinInfoBinding
 import com.example.cryptocheck.data.network.model.CoinInfo
+import com.example.cryptocheck.databinding.ItemCoinInfoBinding
 import com.squareup.picasso.Picasso
 
 /*This class is creating a list of CoinInfo objects and binding them to the RecyclerView.

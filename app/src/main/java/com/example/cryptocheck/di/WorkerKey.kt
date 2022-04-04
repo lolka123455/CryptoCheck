@@ -10,4 +10,4 @@ This allows us to have multiple classes that extend from ListenableWorker and sp
 unique IDs for each one.*/
 @MapKey
 @Retention(AnnotationRetention.RUNTIME)
-annotation class WorkerKey (val value: KClass<out ListenableWorker>)
+annotation class WorkerKey(val value: KClass<out ListenableWorker>)

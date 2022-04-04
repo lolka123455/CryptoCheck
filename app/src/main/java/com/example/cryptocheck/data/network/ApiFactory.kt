@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 /*This object is creating an instance of the ApiService class. The Retrofit library uses Gson to
 convert JSON data into Kotlin objects. This code creates a base URL for the API service, which in
-this case is https:/minapi.cryptocompare.com/data/.*/
+this case is https://min-api.cryptocompare.com/data/.*/
 object ApiFactory {
 
     private const val BASE_URL = "https://min-api.cryptocompare.com/data/"

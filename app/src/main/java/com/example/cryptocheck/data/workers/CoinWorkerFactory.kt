@@ -35,17 +35,3 @@ class CoinWorkerFactory @Inject constructor(
         return factoryProvider.get().create(appContext, workerParameters)
     }
 }
-
-//override fun createWorker(
-//    appContext: Context,
-//    workerClassName: String,
-//    workerParameters: WorkerParameters
-//): ListenableWorker? {
-//    return when (workerClassName) {
-//        RefreshDataWorker::class.qualifiedName -> {
-//            val childWorkerFactory = workerProvider[RefreshDataWorker::class.java]?.get()
-//            return childWorkerFactory?.create(appContext,workerParameters)
-//        }
-//        else -> null
-//    }
-//}

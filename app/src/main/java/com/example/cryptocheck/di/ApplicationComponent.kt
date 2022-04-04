@@ -17,7 +17,7 @@ The module for ViewModelModule contains all of the classes needed by each view m
     modules = [
         DataModule::class,
         ViewModelModule::class,
-    WorkerModule::class]
+        WorkerModule::class]
 )
 /*This interface is creating a Dagger ApplicationComponent.Factory interface that will be used to
 create an instance of the ApplicationComponent class. The @BindsInstance annotation tells Dagger

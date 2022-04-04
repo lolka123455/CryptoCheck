@@ -48,7 +48,7 @@ class CoinDetailFragment : Fragment() {
         viewModel = ViewModelProvider(this, viewModelFactory)[CoinViewModel::class.java]
         viewModel.getDetailInfo(fromSymbol).observe(viewLifecycleOwner) {
             with(binding) {
-                tvPrice.text ="$${it.price}"
+                tvPrice.text = "$${it.price}"
                 tvMinPrice.text = "$${it.price}"
                 tvMaxPrice.text = "$${it.price}"
                 tvLastMarket.text = it.lastMarket

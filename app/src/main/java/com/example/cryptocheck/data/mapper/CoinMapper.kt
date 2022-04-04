@@ -15,7 +15,7 @@ import javax.inject.Inject
 The mapJsonContainerToListCoinInfo function takes in a json container and returns a list of
 CoinInfoDto. It iterates through each coin key, which represents one currency (e.g., BTC).
 It then iterates through each currency key, which represents another type of currency (e.g., USD).*/
-class CoinMapper @Inject constructor(){
+class CoinMapper @Inject constructor() {
 
     //This function is mapping the data from CoinInfoDto to CoinInfoDbModel.
     fun mapDtoToDbModel(dto: CoinInfoDto) = CoinInfoDbModel(
@@ -72,7 +72,7 @@ class CoinMapper @Inject constructor(){
         imageUrl = dbModel.imageUrl
     )
 
-    /*This function is converting the timestamp to a time. The pattern is "HHmmss" which means that
+    /*This function is converting the timestamp to a time. The pattern is "HH:mm:ss" which means that
     it will show hours, minutes and seconds in 24 hour format. The locale is set to default so that
     it can be used on any device.
     This code also sets the timezone of the system as default for this app.*/

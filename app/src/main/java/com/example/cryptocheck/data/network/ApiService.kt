@@ -9,7 +9,7 @@ import retrofit2.http.Query
 It also gets the full list of all coins with their prices in USD.*/
 interface ApiService {
     @GET("top/totalvolfull")
-   suspend fun getTopCoinsInfo(
+    suspend fun getTopCoinsInfo(
         @Query(QUERY_PARAM_API_KEY) apiKey: String =
             "f25aa66b2ccc2607eb1ecf26b8ce61db95d6462d622325a45c37e15f38504359",
         @Query(QUERY_PARAM_LIMIT) limit: Int = 10,

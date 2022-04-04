@@ -16,7 +16,7 @@ refresh data from API and save it in database. The last thing is that we are usi
 to map LiveData objects into other types. In this case, we are mapping List object into list of
 CoinInfo objects and then returning them as LiveData object.*/
 class CoinRepositoryImpl @Inject constructor(
-    private val coinInfoDao:CoinInfoDao,
+    private val coinInfoDao: CoinInfoDao,
     private val mapper: CoinMapper,
     private val application: Application
 ) : CoinRepository {

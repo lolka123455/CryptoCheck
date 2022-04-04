@@ -11,9 +11,9 @@ The reason for this is because we want to be able to observe changes in the list
 update our UI accordingly. We also need to call loadDataUseCase() at initialization time, which will
 trigger an asynchronous task that will fetch data from Cryptocompare API.*/
 class CoinViewModel @Inject constructor(
-    private val getCoinInfoListUseCase: GetCoinInfoListUseCase,
+    getCoinInfoListUseCase: GetCoinInfoListUseCase,
     private val getCoinInfoUseCase: GetCoinInfoUseCase,
-    private val loadDataUseCase: LoadDataUseCase,
+    loadDataUseCase: LoadDataUseCase,
 ) : ViewModel() {
 
 

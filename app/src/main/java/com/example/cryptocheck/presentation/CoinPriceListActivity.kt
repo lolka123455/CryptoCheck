@@ -38,7 +38,7 @@ class CoinPriceListActivity : AppCompatActivity() {
             override fun onCoinClick(coinPriceInfo: CoinInfo) {
                 if (isOnePaneMode()) {
                     launchDetailActivity(coinPriceInfo.fromSymbol)
-                }else {
+                } else {
                     launchDetailFragment(coinPriceInfo.fromSymbol)
                 }
             }
@@ -51,6 +51,7 @@ class CoinPriceListActivity : AppCompatActivity() {
             adapter.submitList(it)
         }
     }
+
     /*This function is checking if the fragment container is null. If it's not, then we know that there
     are two fragments in this activity and therefore we're in one pane mode. If the fragment
     container is null, then we know that there's only one fragment in this activity and therefore
@@ -58,7 +59,7 @@ class CoinPriceListActivity : AppCompatActivity() {
     private fun isOnePaneMode() = binding.fragmentContainer == null
 
     //This function is launching the CoinDetailActivity with a symbol as an extra.
-    private fun launchDetailActivity(fromSymbol: String){
+    private fun launchDetailActivity(fromSymbol: String) {
         val intent = CoinDetailActivity.newIntent(
             this@CoinPriceListActivity,
             fromSymbol
@@ -68,18 +69,10 @@ class CoinPriceListActivity : AppCompatActivity() {
 
     /*This function is creating a new instance of the CoinDetailFragment and passing in the symbol
     as an argument*/
-    private fun launchDetailFragment(fromSymbol: String){
+    private fun launchDetailFragment(fromSymbol: String) {
         val fragment = CoinDetailFragment.newInstance(fromSymbol)
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .commit()
     }
-    //private fun launchDetailFragment(fromSymbol:String) {
-    //        supportFragmentManager.popBackStack()
-    //        supportFragmentManager
-    //            .beginTransaction()
-    //            .replace(R.id.fragment_container, CoinDetailFragment.newInstance(fromSymbol))
-    //            .addToBackStack(null)
-    //            .commit()
-    //    }
 }
