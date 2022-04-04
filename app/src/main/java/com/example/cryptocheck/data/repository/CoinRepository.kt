@@ -1,4 +1,4 @@
-package com.example.cryptocheck.data.database
+package com.example.cryptocheck.data.repository
 
 import androidx.lifecycle.LiveData
 import com.example.cryptocheck.data.network.model.CoinInfo

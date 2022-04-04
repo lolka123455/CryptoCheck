@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.cryptocheck.R
-import com.example.cryptocheck.databinding.ActivityCoinPriceListBinding
 import com.example.cryptocheck.data.network.model.CoinInfo
+import com.example.cryptocheck.databinding.ActivityCoinPriceListBinding
 import com.example.cryptocheck.presentation.adapters.CoinInfoAdapter
 import javax.inject.Inject
 
@@ -45,7 +45,7 @@ class CoinPriceListActivity : AppCompatActivity() {
 
         }
         binding.rvCoinPriceList.adapter = adapter
-        binding.rvCoinPriceList.itemAnimator = null
+        binding.rvCoinPriceList.animation = null
         viewModel = ViewModelProvider(this, viewModelFactory)[CoinViewModel::class.java]
         viewModel.coinInfoList.observe(this) {
             adapter.submitList(it)
@@ -68,12 +68,18 @@ class CoinPriceListActivity : AppCompatActivity() {
 
     /*This function is creating a new instance of the CoinDetailFragment and passing in the symbol
     as an argument*/
-    private fun launchDetailFragment(fromSymbol:String) {
-        supportFragmentManager.popBackStack()
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragment_container, CoinDetailFragment.newInstance(fromSymbol))
-            .addToBackStack(null)
+    private fun launchDetailFragment(fromSymbol: String){
+        val fragment = CoinDetailFragment.newInstance(fromSymbol)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
             .commit()
     }
+    //private fun launchDetailFragment(fromSymbol:String) {
+    //        supportFragmentManager.popBackStack()
+    //        supportFragmentManager
+    //            .beginTransaction()
+    //            .replace(R.id.fragment_container, CoinDetailFragment.newInstance(fromSymbol))
+    //            .addToBackStack(null)
+    //            .commit()
+    //    }
 }

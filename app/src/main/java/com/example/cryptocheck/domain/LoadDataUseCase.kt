@@ -1,6 +1,6 @@
 package com.example.cryptocheck.domain
 
-import com.example.cryptocheck.data.database.CoinRepository
+import com.example.cryptocheck.data.repository.CoinRepository
 import javax.inject.Inject
 
 //This class is calling the repository's loadData() method.

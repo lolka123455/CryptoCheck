@@ -30,9 +30,9 @@ class CoinApp : Application(), Configuration.Provider {
     used to configure the WorkManager instance. It's a builder pattern, so we can set multiple
     properties at once and then build it with `build()`. We're also overriding
     getWorkManagerConfiguration() in our AppModule class to return this new configuration object.*/
-    override fun getWorkManagerConfiguration(): Configuration {
-        return Configuration.Builder()
-            .setWorkerFactory(workerFactory)
-            .build()
-    }
+    override fun getWorkManagerConfiguration() = Configuration.Builder()
+        .setWorkerFactory(workerFactory)
+        .build()
+
+
 }

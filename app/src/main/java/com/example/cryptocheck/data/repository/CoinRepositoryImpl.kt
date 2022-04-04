@@ -7,9 +7,8 @@ import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
 import com.example.cryptocheck.data.database.CoinInfoDao
 import com.example.cryptocheck.data.mapper.CoinMapper
-import com.example.cryptocheck.data.workers.RefreshDataWorker
 import com.example.cryptocheck.data.network.model.CoinInfo
-import com.example.cryptocheck.data.database.CoinRepository
+import com.example.cryptocheck.data.workers.RefreshDataWorker
 import javax.inject.Inject
 
 /*This class is creating a new instance of WorkManager. Then, it enqueues the work request to

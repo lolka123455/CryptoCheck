@@ -40,6 +40,5 @@ interface ApplicationComponent {
         fun create(
             @BindsInstance application: Application
         ): ApplicationComponent
-
     }
 }

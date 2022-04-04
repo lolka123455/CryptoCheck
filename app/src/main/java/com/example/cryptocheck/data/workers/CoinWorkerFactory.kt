@@ -27,14 +27,25 @@ class CoinWorkerFactory @Inject constructor(
         appContext: Context,
         workerClassName: String,
         workerParameters: WorkerParameters
-    ): ListenableWorker? {
-        return when (workerClassName) {
-            RefreshDataWorker::class.qualifiedName -> {
-               val childWorkerFactory = workerProvider[RefreshDataWorker::class.java]?.get()
-                return childWorkerFactory?.create(appContext,workerParameters)
-            }
-            else -> null
-        }
-
+    ): ListenableWorker {
+        val foundEntry =
+            workerProvider.entries.find { Class.forName(workerClassName).isAssignableFrom(it.key) }
+        val factoryProvider = foundEntry?.value
+            ?: throw IllegalArgumentException("unknown worker class name: $workerClassName")
+        return factoryProvider.get().create(appContext, workerParameters)
     }
 }
+
+//override fun createWorker(
+//    appContext: Context,
+//    workerClassName: String,
+//    workerParameters: WorkerParameters
+//): ListenableWorker? {
+//    return when (workerClassName) {
+//        RefreshDataWorker::class.qualifiedName -> {
+//            val childWorkerFactory = workerProvider[RefreshDataWorker::class.java]?.get()
+//            return childWorkerFactory?.create(appContext,workerParameters)
+//        }
+//        else -> null
+//    }
+//}

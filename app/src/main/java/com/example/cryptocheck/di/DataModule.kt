@@ -5,8 +5,8 @@ import com.example.cryptocheck.data.database.AppDatabase
 import com.example.cryptocheck.data.database.CoinInfoDao
 import com.example.cryptocheck.data.network.ApiFactory
 import com.example.cryptocheck.data.network.ApiService
+import com.example.cryptocheck.data.repository.CoinRepository
 import com.example.cryptocheck.data.repository.CoinRepositoryImpl
-import com.example.cryptocheck.data.database.CoinRepository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
