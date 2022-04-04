@@ -26,12 +26,6 @@ Light Theme
 ![screen_one_dark](https://user-images.githubusercontent.com/49922631/161603907-1452666f-8040-4074-8fdc-d33671d2c0f6.png)
 ![screen_second_dark](https://user-images.githubusercontent.com/49922631/161603904-2dcc3115-1efe-4cfc-a968-59e742a664c2.png)
 
-## Clone repository
-You can clone my app to yourself using :
-HTTPS - https://github.com/lolka123455/CryptoCheck.git
-SSH - git@github.com:lolka123455/CryptoCheck.git
-Command Line - gh repo clone lolka123455/CryptoCheck
-
 ## API
 Here you can get a free api key for 100,000 queries -https://min-api.cryptocompare.com
 
